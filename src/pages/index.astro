@@ -180,7 +180,7 @@
 
     /* ── CULTOS ── */
     #cultos { background: linear-gradient(140deg, var(--navy-deep) 0%, var(--navy) 100%); }
-    .cultos-wrap { text-align: center; max-width: 1080px; width: 100%; padding: 2rem 3rem; }
+    .cultos-wrap { text-align: center; max-width: 1180px; width: 100%; padding: 2rem 3rem; }
     .culto-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; margin-top: 2.5rem; }
     .culto-card { background: var(--glass); border: 1px solid var(--glass-b); border-radius: 3px; padding: 1.75rem 1.4rem; position: relative; overflow: hidden; transition: border-color .3s, transform .3s; }
     .culto-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); transform: scaleX(0); transition: transform .4s; }
@@ -190,14 +190,53 @@
     .culto-nombre { font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 600; margin-top: .65rem; }
     .culto-hora { font-size: 2.1rem; font-weight: 300; margin-top: .85rem; }
     .culto-desc { font-size: .78rem; color: var(--muted); margin-top: .65rem; line-height: 1.65; }
-    .sermon-row { margin-top: 2rem; background: var(--glass); border: 1px solid var(--glass-b); border-radius: 3px; padding: 1.25rem 1.75rem; display: flex; align-items: center; gap: 1.75rem; text-align: left; }
-    .sermon-badge { font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: .28rem .7rem; border-radius: 2px; white-space: nowrap; flex-shrink: 0; }
-    .sermon-title { font-family: 'Cinzel', serif; font-size: .95rem; font-weight: 600; }
-    .sermon-meta { font-size: .74rem; color: var(--muted); margin-top: .25rem; }
-    .play-btn { margin-left: auto; flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--gold-dim); border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background .3s; }
-    .play-btn:hover { background: rgba(201,169,110,.45); }
-    .play-btn svg { fill: var(--gold); margin-left: 2px; }
-    #sermonPlayerWrap { display: none; margin-top: 1rem; width: 100%; }
+
+    .video-library { margin-top: 2rem; text-align: left; background: rgba(255,255,255,.03); border: 1px solid var(--glass-b); border-radius: 8px; padding: 1.5rem; }
+    .video-library-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.2rem; flex-wrap: wrap; }
+    .video-library-kicker { font-size: .66rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+    .video-library-title { margin-top: .45rem; font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 600; color: var(--white); }
+    .video-controls { display: flex; align-items: center; gap: .9rem; flex-wrap: wrap; justify-content: flex-end; }
+    .video-filter-chips { display: flex; gap: .55rem; flex-wrap: wrap; }
+    .video-chip { background: rgba(255,255,255,.04); color: var(--muted); border: 1px solid var(--glass-b); border-radius: 999px; padding: .52rem .85rem; font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: .25s ease; }
+    .video-chip:hover, .video-chip.active { color: var(--navy); background: var(--gold); border-color: var(--gold); }
+    .video-month-wrap { display: flex; align-items: center; gap: .5rem; }
+    .video-month-wrap label { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+    .video-month-select { min-width: 185px; background: rgba(255,255,255,.04); color: var(--white); border: 1px solid var(--glass-b); border-radius: 6px; padding: .72rem .85rem; }
+    .video-feature { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1.2rem; margin-top: 1.3rem; }
+    .video-feature-media { position: relative; min-height: 320px; border-radius: 8px; overflow: hidden; border: 1px solid var(--glass-b); background: rgba(0,0,0,.45); }
+    .video-feature-media iframe, .video-feature-media img { width: 100%; height: 100%; border: 0; object-fit: cover; display: block; }
+    .video-feature-placeholder { min-height: 320px; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--muted); padding: 2rem; }
+    .video-feature-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: linear-gradient(to top, rgba(7,5,30,.88), rgba(7,5,30,.2)); }
+    .video-feature-play { width: 82px; height: 82px; border-radius: 50%; border: 1px solid rgba(201,169,110,.65); background: rgba(201,169,110,.15); display: flex; align-items: center; justify-content: center; color: var(--gold); cursor: pointer; backdrop-filter: blur(8px); }
+    .video-feature-play svg { margin-left: 4px; }
+    .video-feature-body { background: rgba(255,255,255,.03); border: 1px solid var(--glass-b); border-radius: 8px; padding: 1.15rem; display: flex; flex-direction: column; }
+    .video-feature-topline { display: flex; gap: .65rem; align-items: center; flex-wrap: wrap; }
+    .video-tag { display: inline-flex; align-items: center; gap: .35rem; padding: .32rem .62rem; border-radius: 999px; background: rgba(201,169,110,.14); border: 1px solid rgba(201,169,110,.25); color: var(--gold); font-size: .64rem; letter-spacing: .14em; text-transform: uppercase; }
+    .video-date { font-size: .72rem; color: var(--muted); }
+    .video-feature-title { margin-top: .8rem; font-family: 'Cinzel', serif; font-size: 1.3rem; line-height: 1.35; color: var(--white); }
+    .video-feature-meta { margin-top: .5rem; font-size: .78rem; color: var(--gold); letter-spacing: .06em; }
+    .video-feature-desc { margin-top: .9rem; color: var(--muted); font-size: .84rem; line-height: 1.7; }
+    .video-feature-actions { margin-top: auto; display: flex; gap: .7rem; flex-wrap: wrap; padding-top: 1.2rem; }
+    .video-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: .72rem 1rem; border-radius: 4px; text-decoration: none; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; border: 1px solid transparent; cursor: pointer; }
+    .video-btn-primary { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+    .video-btn-secondary { background: transparent; color: var(--white); border-color: var(--glass-b); }
+    .video-btn-disabled { background: rgba(255,255,255,.04); color: var(--muted); border-color: var(--glass-b); cursor: not-allowed; }
+    .video-note { font-size: .74rem; color: var(--muted); }
+    .video-strip-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.35rem; flex-wrap: wrap; }
+    .video-strip-title { font-family: 'Cinzel', serif; font-size: .92rem; color: var(--white); }
+    .video-strip-count { font-size: .72rem; color: var(--muted); }
+    .video-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .85rem; margin-top: .85rem; }
+    .video-card { background: rgba(255,255,255,.03); border: 1px solid var(--glass-b); border-radius: 6px; overflow: hidden; text-align: left; cursor: pointer; transition: .25s ease; padding: 0; appearance: none; -webkit-appearance: none; }
+    .video-card:hover, .video-card.active { transform: translateY(-3px); border-color: var(--gold-dim); }
+    .video-card-thumb { position: relative; aspect-ratio: 16/9; background: rgba(0,0,0,.45); overflow: hidden; }
+    .video-card-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .video-card-badge { position: absolute; left: .6rem; top: .6rem; background: rgba(7,5,30,.82); border: 1px solid rgba(201,169,110,.25); color: var(--gold); border-radius: 999px; padding: .25rem .5rem; font-size: .58rem; letter-spacing: .12em; text-transform: uppercase; }
+    .video-card-body { padding: .8rem; }
+    .video-card-title { font-size: .8rem; color: var(--white); line-height: 1.45; min-height: 3.1em; }
+    .video-card-meta { margin-top: .45rem; font-size: .68rem; color: var(--muted); }
+    .video-empty { margin-top: 1rem; padding: 1.25rem; text-align: center; color: var(--muted); border: 1px dashed var(--glass-b); border-radius: 6px; }
+
+    /* ── EN VIVO ── */
 
     /* ── EN VIVO ── */
     #envivo { background: var(--navy-deep); }
@@ -473,11 +512,20 @@
       .culto-cards { grid-template-columns: 1fr; gap: .85rem; margin-top: 1.5rem; }
       .culto-card { padding: 1.2rem 1rem; }
       .culto-hora { font-size: 1.65rem; }
-      .sermon-row { margin-top: 1.1rem; flex-wrap: wrap; gap: .8rem; padding: 1rem; }
-      .sermon-badge { order: 1; }
-      .sermon-row > div:not(.play-btn) { order: 2; width: 100%; }
-      .sermon-title { font-size: .88rem; word-break: break-word; }
-      .play-btn { order: 3; margin-left: auto; width: 38px; height: 38px; }
+      .video-library { margin-top: 1.2rem; padding: 1rem; }
+      .video-library-head { align-items: stretch; }
+      .video-library-title { font-size: 1rem; }
+      .video-controls { width: 100%; justify-content: flex-start; }
+      .video-filter-chips { gap: .45rem; }
+      .video-chip { padding: .5rem .7rem; font-size: .62rem; }
+      .video-month-wrap { width: 100%; }
+      .video-month-select { width: 100%; min-width: 0; }
+      .video-feature { grid-template-columns: 1fr; }
+      .video-feature-media, .video-feature-placeholder { min-height: 220px; }
+      .video-feature-title { font-size: 1.05rem; }
+      .video-feature-actions { padding-top: .95rem; }
+      .video-btn { width: 100%; }
+      .video-strip { grid-template-columns: 1fr; }
 
       .envivo-wrap { width: 100%; max-width: 100%; padding: 0 1.2rem; }
       .stream-box { margin-top: 1.2rem; max-height: none; min-height: 200px; }
@@ -645,8 +693,8 @@
   <!-- 03 CULTOS -->
   <section class="page" id="cultos">
     <div class="cultos-wrap">
-      <p class="section-label reveal">Horarios</p>
-      <h2 class="section-title reveal d1" style="text-align:center">Cultos &amp; Sermones</h2>
+      <p class="section-label reveal">Programación &amp; Canal</p>
+      <h2 class="section-title reveal d1" style="text-align:center">Mensajes &amp; Videos</h2>
       <div class="gold-line reveal d2"></div>
       <div class="culto-cards">
         <div class="culto-card reveal d1">
@@ -668,21 +716,53 @@
           <p class="culto-desc">Reunión especial para jóvenes con alabanza contemporánea y mensaje relevante.</p>
         </div>
       </div>
-      <div class="sermon-row reveal d4">
-        <span class="sermon-badge">Última Prédica</span>
-        <div>
-          <p class="sermon-title">Cargando último culto...</p>
-          <p class="sermon-meta">Conectando con YouTube...</p>
+
+      <div class="video-library reveal d4">
+        <div class="video-library-head">
+          <div>
+            <p class="video-library-kicker">Biblioteca del canal</p>
+            <h3 class="video-library-title">Destacado, filtros por tipo y por fecha</h3>
+          </div>
+          <div class="video-controls">
+            <div class="video-filter-chips" id="videoTypeFilters">
+              <button type="button" class="video-chip active" data-video-type="all">Todos</button>
+              <button type="button" class="video-chip" data-video-type="Cultos">Cultos</button>
+              <button type="button" class="video-chip" data-video-type="Charlas">Charlas</button>
+              <button type="button" class="video-chip" data-video-type="Debates">Debates</button>
+              <button type="button" class="video-chip" data-video-type="Avisos">Avisos</button>
+              <button type="button" class="video-chip" data-video-type="Estudios">Estudios</button>
+              <button type="button" class="video-chip" data-video-type="Otros">Otros</button>
+            </div>
+            <div class="video-month-wrap">
+              <label for="videoMonthFilter">Mes</label>
+              <select id="videoMonthFilter" class="video-month-select">
+                <option value="all">Todos los meses</option>
+              </select>
+            </div>
+          </div>
         </div>
-        <div class="play-btn"><svg width="13" height="15" viewBox="0 0 13 15"><path d="M0 0l13 7.5L0 15V0z"/></svg></div>
-      </div>
-      <div id="sermonPlayerWrap" class="reveal d4">
-        <div style="display:flex;justify-content:flex-end;margin-bottom:.5rem;">
-          <button type="button" onclick="closeSermonPlayer()" style="background:transparent;color:var(--muted);border:1px solid var(--glass-b);padding:.35rem .7rem;cursor:pointer;border-radius:3px;">Cerrar video</button>
+
+        <div class="video-feature" id="videoFeature">
+          <div class="video-feature-media" id="videoFeatureMedia">
+            <div class="video-feature-placeholder">Cargando videos del canal...</div>
+          </div>
+          <div class="video-feature-body">
+            <div class="video-feature-topline">
+              <span class="video-tag" id="videoFeatureType">Canal</span>
+              <span class="video-date" id="videoFeatureDate">Conectando con YouTube...</span>
+            </div>
+            <h3 class="video-feature-title" id="videoFeatureTitle">Cargando video destacado...</h3>
+            <p class="video-feature-meta" id="videoFeatureMeta">Preparando biblioteca del canal.</p>
+            <p class="video-feature-desc" id="videoFeatureDesc">Cuando cargue la lista, aquí aparecerá el video principal y debajo podrás elegir otros por tipo o por mes.</p>
+            <div class="video-feature-actions" id="videoFeatureActions"></div>
+          </div>
         </div>
-        <div style="position:relative;width:100%;aspect-ratio:16/9;border:1px solid var(--glass-b);border-radius:5px;overflow:hidden;background:#000;">
-          <iframe id="sermonPlayer" src="" title="Última prédica" style="width:100%;height:100%;border:none;" allow="autoplay;encrypted-media;picture-in-picture" allowfullscreen></iframe>
+
+        <div class="video-strip-head">
+          <p class="video-strip-title">Más videos del canal</p>
+          <p class="video-strip-count" id="videoStripCount">Cargando…</p>
         </div>
+        <div class="video-strip" id="videoStrip"></div>
       </div>
     </div>
     <span class="page-num">03 / 10</span>
@@ -1286,6 +1366,13 @@ const YT_CHANNEL_ID = 'UCcijrVl3zWSXSuzP3nQI32A';
 const YT_BASE       = 'https://www.googleapis.com/youtube/v3';
 const ytOK = () => Boolean(YT_API_KEY && YT_CHANNEL_ID);
 const qs = s => document.querySelector(s);
+const videoState = {
+  all: [],
+  filtered: [],
+  selectedId: null,
+  type: 'all',
+  month: 'all'
+};
 
 async function ytFetch(path, params = {}) {
   const url = new URL(`${YT_BASE}/${path}`);
@@ -1304,8 +1391,14 @@ function fmtDate(iso) {
 function fmtDateTime(iso) {
   return new Date(iso).toLocaleString('es-PY', { weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' });
 }
-function openVideo(videoId) { window.open(`https://youtube.com/watch?v=${videoId}`, '_blank'); }
+function escapeHtml(str = '') {
+  return str.replace(/[&<>"']/g, (m) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;', "'":'&#39;' }[m]));
+}
+function videoUrl(videoId) {
+  return `https://www.youtube.com/watch?v=${videoId}`;
+}
 function closeSermonPlayer() {
+  // kept for compatibility with older markup if it exists
   const w = document.getElementById('sermonPlayerWrap');
   const f = document.getElementById('sermonPlayer');
   if (f) f.src = '';
@@ -1317,11 +1410,33 @@ async function getUploadsPlaylistId() {
   return data.items?.[0]?.contentDetails?.relatedPlaylists?.uploads || null;
 }
 
+function normalizeText(str = '') {
+  return String(str)
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\w\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function classifyVideo(video) {
+  const text = normalizeText(`${video.title} ${video.description || ''}`);
+
+  if (/(aviso|anuncio|comunicado|agenda|informativo|novedades)/.test(text)) return 'Avisos';
+  if (/(debate|panel|conversatorio|mesa redonda|dialogo|di[aá]logo)/.test(text)) return 'Debates';
+  if (/(charla|conferencia|seminario|taller|entrevista|capacitacion|capacitaci[oó]n)/.test(text)) return 'Charlas';
+  if (/(estudio biblico|estudio b[ií]blico|discipulado|devocional|escuela dominical|lectura b[ií]blica)/.test(text)) return 'Estudios';
+  if (/(culto|predica|predicacion|predicación|sermon|serm[oó]n|mensaje|adoracion|adoración|domingo|miercoles|miércoles)/.test(text)) return 'Cultos';
+  return 'Otros';
+}
+
 function toVideoItem(v) {
   if (!v) return null;
-  return {
+  const item = {
     videoId: v.id,
     title: v.snippet?.title || '',
+    description: v.snippet?.description || '',
     thumb: v.snippet?.thumbnails?.high?.url || v.snippet?.thumbnails?.medium?.url || v.snippet?.thumbnails?.default?.url,
     publishedAt: v.snippet?.publishedAt || null,
     scheduledStartTime: v.liveStreamingDetails?.scheduledStartTime || null,
@@ -1329,6 +1444,12 @@ function toVideoItem(v) {
     embeddable: v.status?.embeddable !== false,
     privacyStatus: v.status?.privacyStatus || 'public'
   };
+  item.category = classifyVideo(item);
+  item.monthKey = item.publishedAt ? item.publishedAt.slice(0, 7) : 'unknown';
+  item.monthLabel = item.publishedAt
+    ? new Date(`${item.monthKey}-01T00:00:00`).toLocaleDateString('es-PY', { month: 'long', year: 'numeric' })
+    : 'Sin fecha';
+  return item;
 }
 
 async function getVideoById(videoId) {
@@ -1337,14 +1458,42 @@ async function getVideoById(videoId) {
   return toVideoItem(data.items?.[0]);
 }
 
-async function getLatestUpload() {
+async function getRecentUploads(limit = 24) {
   const uploadsId = await getUploadsPlaylistId();
-  if (!uploadsId) return null;
-  const data = await ytFetch('playlistItems', { part: 'snippet', playlistId: uploadsId, maxResults: 1 });
-  const item = data.items?.[0];
-  const videoId = item?.snippet?.resourceId?.videoId;
-  if (!videoId) return null;
-  return await getVideoById(videoId);
+  if (!uploadsId) return [];
+  const items = [];
+  let pageToken = '';
+  while (items.length < limit) {
+    const data = await ytFetch('playlistItems', {
+      part: 'snippet',
+      playlistId: uploadsId,
+      maxResults: Math.min(50, limit - items.length),
+      pageToken
+    });
+    items.push(...(data.items || []));
+    if (!data.nextPageToken || !(data.items || []).length) break;
+    pageToken = data.nextPageToken;
+  }
+
+  const ids = items
+    .map(item => item?.snippet?.resourceId?.videoId)
+    .filter(Boolean);
+
+  if (!ids.length) return [];
+  const chunks = [];
+  for (let i = 0; i < ids.length; i += 50) chunks.push(ids.slice(i, i + 50).join(','));
+
+  const detailBatches = await Promise.all(chunks.map(idChunk => ytFetch('videos', {
+    part: 'snippet,status,liveStreamingDetails',
+    id: idChunk
+  })));
+
+  return detailBatches
+    .flatMap(batch => batch.items || [])
+    .map(toVideoItem)
+    .filter(Boolean)
+    .filter(v => v.privacyStatus !== 'private')
+    .sort((a, b) => new Date(b.publishedAt || 0) - new Date(a.publishedAt || 0));
 }
 
 async function getBroadcast(eventType) {
@@ -1366,42 +1515,144 @@ async function getBroadcast(eventType) {
     .filter(v => v.privacyStatus !== 'private' && v.embeddable);
 
   if (!items.length) return null;
-  if (eventType === 'live') items.sort((a,b) => new Date(b.actualStartTime||b.publishedAt) - new Date(a.actualStartTime||a.publishedAt));
-  else items.sort((a,b) => new Date(a.scheduledStartTime||a.publishedAt) - new Date(b.scheduledStartTime||b.publishedAt));
+  if (eventType === 'live') items.sort((a,b) => new Date(b.actualStartTime || b.publishedAt) - new Date(a.actualStartTime || a.publishedAt));
+  else items.sort((a,b) => new Date(a.scheduledStartTime || a.publishedAt) - new Date(b.scheduledStartTime || b.publishedAt));
   return items[0];
 }
 
-function renderLatestCulto(video) {
-  if (!video) return;
-  const title = qs('.sermon-title'), meta = qs('.sermon-meta'), row = qs('.sermon-row');
-  if (title) title.textContent = video.title.length > 70 ? video.title.slice(0,67)+'…' : video.title;
-  if (meta) meta.textContent = video.embeddable
-    ? `YouTube · ${fmtDate(video.publishedAt)} · Último culto publicado`
-    : `YouTube · ${fmtDate(video.publishedAt)} · Este video debe abrirse en YouTube`;
+function populateMonthFilter(videos) {
+  const select = document.getElementById('videoMonthFilter');
+  if (!select) return;
 
-  if (row) {
-    row.style.cursor = 'pointer';
-    row.onclick = () => {
-      if (!video.embeddable) {
-        openVideo(video.videoId);
-        return;
-      }
+  const current = videoState.month;
+  const options = [...new Map(videos
+    .filter(v => v.monthKey && v.monthKey !== 'unknown')
+    .map(v => [v.monthKey, v.monthLabel]))]
+    .sort((a, b) => b[0].localeCompare(a[0]));
 
-      const w = document.getElementById('sermonPlayerWrap');
-      const f = document.getElementById('sermonPlayer');
-      if (!w || !f) return;
-      const embedUrl = `https://www.youtube-nocookie.com/embed/${video.videoId}?autoplay=1&rel=0&playsinline=1&controls=1`;
-      if (w.style.display !== 'none' && f.src.includes(video.videoId)) { closeSermonPlayer(); return; }
-      f.src = embedUrl;
-      w.style.display = 'block';
-      w.classList.add('visible');
-      w.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    };
+  select.innerHTML = '<option value="all">Todos los meses</option>' +
+    options.map(([key, label]) => `<option value="${escapeHtml(key)}">${escapeHtml(label)}</option>`).join('');
+
+  select.value = current;
+}
+
+function getFilteredVideos() {
+  return videoState.all.filter(video => {
+    const matchType = videoState.type === 'all' || video.category === videoState.type;
+    const matchMonth = videoState.month === 'all' || video.monthKey === videoState.month;
+    return matchType && matchMonth;
+  });
+}
+
+function renderFeature(video, autoplay = false) {
+  const media = document.getElementById('videoFeatureMedia');
+  const type = document.getElementById('videoFeatureType');
+  const date = document.getElementById('videoFeatureDate');
+  const title = document.getElementById('videoFeatureTitle');
+  const meta = document.getElementById('videoFeatureMeta');
+  const desc = document.getElementById('videoFeatureDesc');
+  const actions = document.getElementById('videoFeatureActions');
+  if (!media || !type || !date || !title || !meta || !desc || !actions || !video) return;
+
+  type.textContent = video.category;
+  date.textContent = video.publishedAt ? fmtDate(video.publishedAt) : 'Sin fecha';
+  title.textContent = video.title;
+  meta.textContent = video.embeddable
+    ? 'Disponible para reproducir dentro del sitio'
+    : 'Este video debe abrirse directamente en YouTube';
+  desc.textContent = video.description?.trim()
+    ? video.description.trim().slice(0, 240) + (video.description.trim().length > 240 ? '…' : '')
+    : 'Selecciona entre cultos, charlas, debates, avisos y otros contenidos del canal.';
+
+  if (autoplay && video.embeddable) {
+    media.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${video.videoId}?autoplay=1&controls=1&rel=0&playsinline=1" title="${escapeHtml(video.title)}" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe>`;
+  } else {
+    media.innerHTML = `
+      ${video.thumb ? `<img src="${escapeHtml(video.thumb)}" alt="${escapeHtml(video.title)}">` : `<div class="video-feature-placeholder">Sin miniatura disponible</div>`}
+      <div class="video-feature-overlay">
+        <button type="button" class="video-feature-play" data-play-featured="${escapeHtml(video.videoId)}" aria-label="Reproducir ${escapeHtml(video.title)} aquí">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+      </div>`;
+  }
+
+  const ytHref = videoUrl(video.videoId);
+  if (video.embeddable) {
+    actions.innerHTML = `
+      <button type="button" class="video-btn video-btn-primary" data-play-featured="${escapeHtml(video.videoId)}">Ver aquí</button>
+      <a class="video-btn video-btn-secondary" href="${escapeHtml(ytHref)}" target="_blank" rel="noopener">Ver en YouTube</a>`;
+  } else {
+    actions.innerHTML = `
+      <a class="video-btn video-btn-primary" href="${escapeHtml(ytHref)}" target="_blank" rel="noopener">Ver en YouTube</a>
+      <span class="video-note">YouTube no permite reproducir este video dentro del sitio.</span>`;
   }
 }
 
+function renderVideoStrip(videos) {
+  const strip = document.getElementById('videoStrip');
+  const count = document.getElementById('videoStripCount');
+  if (!strip || !count) return;
+
+  count.textContent = `${videos.length} video${videos.length === 1 ? '' : 's'} disponibles`;
+
+  if (!videos.length) {
+    strip.innerHTML = `<div class="video-empty">No hay videos para ese filtro todavía.</div>`;
+    return;
+  }
+
+  strip.innerHTML = videos.map(video => `
+    <button type="button" class="video-card ${video.videoId === videoState.selectedId ? 'active' : ''}" data-select-video="${escapeHtml(video.videoId)}" aria-label="Ver ${escapeHtml(video.title)}">
+      <div class="video-card-thumb">
+        ${video.thumb ? `<img src="${escapeHtml(video.thumb)}" alt="">` : ''}
+        <span class="video-card-badge">${escapeHtml(video.category)}</span>
+      </div>
+      <div class="video-card-body">
+        <p class="video-card-title">${escapeHtml(video.title)}</p>
+        <p class="video-card-meta">${escapeHtml(fmtDate(video.publishedAt))}</p>
+      </div>
+    </button>
+  `).join('');
+}
+
+function applyVideoFilters({ preserveSelection = true, autoplay = false } = {}) {
+  videoState.filtered = getFilteredVideos();
+
+  let featured = null;
+  if (preserveSelection && videoState.selectedId) {
+    featured = videoState.filtered.find(v => v.videoId === videoState.selectedId) || null;
+  }
+  if (!featured) {
+    featured = videoState.filtered[0] || videoState.all[0] || null;
+  }
+
+  videoState.selectedId = featured?.videoId || null;
+  if (featured) renderFeature(featured, autoplay);
+  renderVideoStrip(videoState.filtered);
+}
+
+function setVideoTypeFilter(type) {
+  videoState.type = type;
+  document.querySelectorAll('.video-chip').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.videoType === type);
+  });
+  applyVideoFilters({ preserveSelection: false });
+}
+
+function initVideoLibrary(videos) {
+  videoState.all = videos;
+  populateMonthFilter(videos);
+  applyVideoFilters({ preserveSelection: false });
+}
+
 function renderEmbedBlocked(box, text, buttonLabel, videoId) {
-  box.innerHTML = `<div class="stream-ph"><div class="stream-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><p style="font-size:.84rem;line-height:1.6">${text}</p><button type="button" onclick="openVideo('${videoId}')" style="background:var(--gold);color:#0f0b32;border:none;padding:.6rem 1.3rem;border-radius:2px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer">${buttonLabel}</button></div>`;
+  box.innerHTML = `
+    <div class="stream-ph">
+      <div class="stream-icon">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      </div>
+      <p style="font-size:.84rem;line-height:1.6">${escapeHtml(text)}</p>
+      <a href="${escapeHtml(videoUrl(videoId))}" target="_blank" rel="noopener" style="background:var(--gold);color:#0f0b32;border:none;padding:.6rem 1.3rem;border-radius:2px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;text-decoration:none">${escapeHtml(buttonLabel)}</a>
+    </div>`;
 }
 
 function renderLive(video) {
@@ -1411,51 +1662,100 @@ function renderLive(video) {
   if (!video.embeddable) {
     renderEmbedBlocked(box, 'La transmisión está activa, pero YouTube no permite reproducirla dentro del sitio.', 'Ver en YouTube', video.videoId);
     if (pill) pill.innerHTML = '<span class="live-dot-r"></span>EN VIVO AHORA';
-    if (next) next.innerHTML = `📺 <strong>${video.title}</strong> · Abrir en YouTube`;
+    if (next) next.innerHTML = `📺 <strong>${escapeHtml(video.title)}</strong> · Abrir en YouTube`;
     return;
   }
 
   box.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${video.videoId}?autoplay=1&controls=1&rel=0&playsinline=1" allowfullscreen allow="autoplay;encrypted-media;picture-in-picture" style="width:100%;height:100%;border:none"></iframe>`;
   if (pill) pill.innerHTML = '<span class="live-dot-r"></span>EN VIVO AHORA';
-  if (next) next.innerHTML = `📺 <strong>${video.title}</strong> · Transmisión en curso`;
+  if (next) next.innerHTML = `📺 <strong>${escapeHtml(video.title)}</strong> · Transmisión en curso`;
 }
 
 function renderUpcoming(video) {
   const box = qs('.stream-box'), next = qs('.next-txt'), pill = qs('.live-pill');
   if (!box || !video) return;
-  box.innerHTML = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:1.25rem"><div style="max-width:520px;width:100%;text-align:center">${video.thumb?`<img src="${video.thumb}" alt="" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:4px;border:1px solid rgba(255,255,255,.08);margin-bottom:1rem">`:''}<p style="font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.65rem">Próxima transmisión programada</p><p style="font-size:.95rem;line-height:1.5;color:var(--white);margin-bottom:.85rem">${video.title}</p><p style="font-size:.82rem;color:var(--muted);margin-bottom:1rem">${video.scheduledStartTime?fmtDateTime(video.scheduledStartTime):'Horario pendiente'}</p><button type="button" onclick="openVideo('${video.videoId}')" style="background:var(--gold);color:#0f0b32;border:none;padding:.6rem 1.3rem;border-radius:2px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer">Ver en YouTube</button></div></div>`;
+  box.innerHTML = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:1.25rem"><div style="max-width:520px;width:100%;text-align:center">${video.thumb ? `<img src="${escapeHtml(video.thumb)}" alt="" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:4px;border:1px solid rgba(255,255,255,.08);margin-bottom:1rem">` : ''}<p style="font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.65rem">Próxima transmisión programada</p><p style="font-size:.95rem;line-height:1.5;color:var(--white);margin-bottom:.85rem">${escapeHtml(video.title)}</p><p style="font-size:.82rem;color:var(--muted);margin-bottom:1rem">${video.scheduledStartTime ? escapeHtml(fmtDateTime(video.scheduledStartTime)) : 'Horario pendiente'}</p><a href="${escapeHtml(videoUrl(video.videoId))}" target="_blank" rel="noopener" style="display:inline-flex;background:var(--gold);color:#0f0b32;border:none;padding:.6rem 1.3rem;border-radius:2px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;text-decoration:none">Ver en YouTube</a></div></div>`;
   if (pill) pill.innerHTML = '<span class="live-dot-r"></span>PRÓXIMO EN VIVO';
-  if (next) next.innerHTML = `Próxima transmisión: <strong>${video.scheduledStartTime?fmtDateTime(video.scheduledStartTime):'Programada'}</strong>`;
+  if (next) next.innerHTML = `Próxima transmisión: <strong>${video.scheduledStartTime ? escapeHtml(fmtDateTime(video.scheduledStartTime)) : 'Programada'}</strong>`;
 }
 
 function renderLastServiceFallback(video) {
   const box = qs('.stream-box'), next = qs('.next-txt'), pill = qs('.live-pill');
   if (!box || !video) return;
-  box.innerHTML = `<div class="stream-ph"><div class="stream-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><p style="font-size:.84rem;">No hay transmisión en vivo activa<br>ni programada en este momento</p><button type="button" onclick="openVideo('${video.videoId}')" style="background:var(--gold);color:#0f0b32;border:none;padding:.6rem 1.3rem;border-radius:2px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer">▶ Ver último culto</button></div>`;
-  if (pill) pill.innerHTML = '<span class="live-dot-r"></span>EN VIVO';
-  if (next) next.innerHTML = `Último culto publicado: <strong>${fmtDate(video.publishedAt)}</strong>`;
+  box.innerHTML = `<div class="stream-ph"><div class="stream-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><p style="font-size:.84rem;">No hay transmisión en vivo activa<br>ni programada en este momento</p><a href="${escapeHtml(videoUrl(video.videoId))}" target="_blank" rel="noopener" style="background:var(--gold);color:#0f0b32;border:none;padding:.6rem 1.3rem;border-radius:2px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;text-decoration:none">▶ Ver último video</a></div>`;
+  if (pill) pill.innerHTML = '<span class="live-dot-r"></span>CANAL';
+  if (next) next.innerHTML = `Destacado reciente: <strong>${escapeHtml(video.title)}</strong>`;
 }
+
+document.addEventListener('click', (event) => {
+  const typeBtn = event.target.closest('[data-video-type]');
+  if (typeBtn) {
+    setVideoTypeFilter(typeBtn.dataset.videoType || 'all');
+    return;
+  }
+
+  const selectBtn = event.target.closest('[data-select-video]');
+  if (selectBtn) {
+    const video = videoState.all.find(v => v.videoId === selectBtn.dataset.selectVideo);
+    if (video) {
+      videoState.selectedId = video.videoId;
+      renderFeature(video, false);
+      renderVideoStrip(videoState.filtered);
+    }
+    return;
+  }
+
+  const playBtn = event.target.closest('[data-play-featured]');
+  if (playBtn) {
+    const video = videoState.all.find(v => v.videoId === playBtn.dataset.playFeatured);
+    if (video) {
+      videoState.selectedId = video.videoId;
+      renderFeature(video, true);
+      renderVideoStrip(videoState.filtered);
+    }
+  }
+});
+
+document.getElementById('videoMonthFilter')?.addEventListener('change', (event) => {
+  videoState.month = event.target.value || 'all';
+  applyVideoFilters({ preserveSelection: false });
+});
 
 async function initYouTubeSections() {
   if (!ytOK()) return;
   try {
-    const latest = await getLatestUpload();
-    renderLatestCulto(latest);
+    const recentVideos = await getRecentUploads(24);
+    const latest = recentVideos[0] || null;
+    if (recentVideos.length) initVideoLibrary(recentVideos);
+
     const live = await getBroadcast('live');
     if (live) { renderLive(live); return; }
+
     const upcoming = await getBroadcast('upcoming');
     if (upcoming) { renderUpcoming(upcoming); return; }
+
     if (latest) renderLastServiceFallback(latest);
   } catch(e) {
     console.warn('YouTube:', e);
-    const title = qs('.sermon-title'), meta = qs('.sermon-meta'), next = qs('.next-txt');
-    if (title) title.textContent = 'No se pudo cargar el último culto';
-    if (meta) meta.textContent = 'Verificá la API key y el channel ID';
+    const featureTitle = document.getElementById('videoFeatureTitle');
+    const featureMeta = document.getElementById('videoFeatureMeta');
+    const featureDesc = document.getElementById('videoFeatureDesc');
+    const media = document.getElementById('videoFeatureMedia');
+    const next = qs('.next-txt');
+    const strip = document.getElementById('videoStrip');
+    const count = document.getElementById('videoStripCount');
+
+    if (featureTitle) featureTitle.textContent = 'No se pudieron cargar los videos';
+    if (featureMeta) featureMeta.textContent = 'Verificá la API key y el channel ID';
+    if (featureDesc) featureDesc.textContent = 'La biblioteca del canal no pudo conectarse con YouTube.';
+    if (media) media.innerHTML = '<div class="video-feature-placeholder">No se pudo cargar el reproductor del canal.</div>';
+    if (strip) strip.innerHTML = '<div class="video-empty">No se pudo consultar la lista de videos.</div>';
+    if (count) count.textContent = 'Sin datos';
     if (next) next.innerHTML = 'No se pudo consultar el canal';
   }
 }
 
-window.addEventListener('DOMContentLoaded', initYouTubeSections);
+initYouTubeSections();
 </script>
 </body>
 </html>
