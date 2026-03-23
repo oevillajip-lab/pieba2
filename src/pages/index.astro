@@ -1317,32 +1317,54 @@ async function getUploadsPlaylistId() {
   return data.items?.[0]?.contentDetails?.relatedPlaylists?.uploads || null;
 }
 
+function toVideoItem(v) {
+  if (!v) return null;
+  return {
+    videoId: v.id,
+    title: v.snippet?.title || '',
+    thumb: v.snippet?.thumbnails?.high?.url || v.snippet?.thumbnails?.medium?.url || v.snippet?.thumbnails?.default?.url,
+    publishedAt: v.snippet?.publishedAt || null,
+    scheduledStartTime: v.liveStreamingDetails?.scheduledStartTime || null,
+    actualStartTime: v.liveStreamingDetails?.actualStartTime || null,
+    embeddable: v.status?.embeddable !== false,
+    privacyStatus: v.status?.privacyStatus || 'public'
+  };
+}
+
+async function getVideoById(videoId) {
+  if (!videoId) return null;
+  const data = await ytFetch('videos', { part: 'snippet,status,liveStreamingDetails', id: videoId });
+  return toVideoItem(data.items?.[0]);
+}
+
 async function getLatestUpload() {
   const uploadsId = await getUploadsPlaylistId();
   if (!uploadsId) return null;
   const data = await ytFetch('playlistItems', { part: 'snippet', playlistId: uploadsId, maxResults: 1 });
   const item = data.items?.[0];
-  if (!item?.snippet?.resourceId?.videoId) return null;
-  return {
-    videoId: item.snippet.resourceId.videoId,
-    title: item.snippet.title,
-    publishedAt: item.snippet.publishedAt,
-    thumb: item.snippet.thumbnails?.high?.url || item.snippet.thumbnails?.medium?.url || item.snippet.thumbnails?.default?.url
-  };
+  const videoId = item?.snippet?.resourceId?.videoId;
+  if (!videoId) return null;
+  return await getVideoById(videoId);
 }
 
 async function getBroadcast(eventType) {
-  const search = await ytFetch('search', { part: 'snippet', channelId: YT_CHANNEL_ID, eventType, type: 'video', videoEmbeddable: 'true', maxResults: 5 });
+  const search = await ytFetch('search', {
+    part: 'snippet',
+    channelId: YT_CHANNEL_ID,
+    eventType,
+    type: 'video',
+    videoEmbeddable: 'true',
+    maxResults: 5
+  });
   const ids = (search.items || []).map(i => i.id?.videoId).filter(Boolean);
   if (!ids.length) return null;
-  const videos = await ytFetch('videos', { part: 'snippet,liveStreamingDetails', id: ids.join(',') });
-  const items = (videos.items || []).map(v => ({
-    videoId: v.id, title: v.snippet?.title || '',
-    thumb: v.snippet?.thumbnails?.high?.url || v.snippet?.thumbnails?.medium?.url || v.snippet?.thumbnails?.default?.url,
-    publishedAt: v.snippet?.publishedAt || null,
-    scheduledStartTime: v.liveStreamingDetails?.scheduledStartTime || null,
-    actualStartTime: v.liveStreamingDetails?.actualStartTime || null
-  }));
+
+  const videos = await ytFetch('videos', { part: 'snippet,status,liveStreamingDetails', id: ids.join(',') });
+  const items = (videos.items || [])
+    .map(toVideoItem)
+    .filter(Boolean)
+    .filter(v => v.privacyStatus !== 'private' && v.embeddable);
+
   if (!items.length) return null;
   if (eventType === 'live') items.sort((a,b) => new Date(b.actualStartTime||b.publishedAt) - new Date(a.actualStartTime||a.publishedAt));
   else items.sort((a,b) => new Date(a.scheduledStartTime||a.publishedAt) - new Date(b.scheduledStartTime||b.publishedAt));
@@ -1353,25 +1375,47 @@ function renderLatestCulto(video) {
   if (!video) return;
   const title = qs('.sermon-title'), meta = qs('.sermon-meta'), row = qs('.sermon-row');
   if (title) title.textContent = video.title.length > 70 ? video.title.slice(0,67)+'…' : video.title;
-  if (meta) meta.textContent = `YouTube · ${fmtDate(video.publishedAt)} · Último culto publicado`;
+  if (meta) meta.textContent = video.embeddable
+    ? `YouTube · ${fmtDate(video.publishedAt)} · Último culto publicado`
+    : `YouTube · ${fmtDate(video.publishedAt)} · Este video debe abrirse en YouTube`;
+
   if (row) {
     row.style.cursor = 'pointer';
     row.onclick = () => {
+      if (!video.embeddable) {
+        openVideo(video.videoId);
+        return;
+      }
+
       const w = document.getElementById('sermonPlayerWrap');
       const f = document.getElementById('sermonPlayer');
       if (!w || !f) return;
-      const embedUrl = `https://www.youtube.com/embed/${video.videoId}?autoplay=1&rel=0&playsinline=1&controls=1`;
+      const embedUrl = `https://www.youtube-nocookie.com/embed/${video.videoId}?autoplay=1&rel=0&playsinline=1&controls=1`;
       if (w.style.display !== 'none' && f.src.includes(video.videoId)) { closeSermonPlayer(); return; }
-      f.src = embedUrl; w.style.display = 'block'; w.classList.add('visible');
+      f.src = embedUrl;
+      w.style.display = 'block';
+      w.classList.add('visible');
       w.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     };
   }
 }
 
+function renderEmbedBlocked(box, text, buttonLabel, videoId) {
+  box.innerHTML = `<div class="stream-ph"><div class="stream-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><p style="font-size:.84rem;line-height:1.6">${text}</p><button type="button" onclick="openVideo('${videoId}')" style="background:var(--gold);color:#0f0b32;border:none;padding:.6rem 1.3rem;border-radius:2px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer">${buttonLabel}</button></div>`;
+}
+
 function renderLive(video) {
   const box = qs('.stream-box'), pill = qs('.live-pill'), next = qs('.next-txt');
   if (!box || !video) return;
-  box.innerHTML = `<iframe src="https://www.youtube.com/embed/${video.videoId}?autoplay=1&controls=1&rel=0&playsinline=1" allowfullscreen allow="autoplay;encrypted-media;picture-in-picture" style="width:100%;height:100%;border:none"></iframe>`;
+
+  if (!video.embeddable) {
+    renderEmbedBlocked(box, 'La transmisión está activa, pero YouTube no permite reproducirla dentro del sitio.', 'Ver en YouTube', video.videoId);
+    if (pill) pill.innerHTML = '<span class="live-dot-r"></span>EN VIVO AHORA';
+    if (next) next.innerHTML = `📺 <strong>${video.title}</strong> · Abrir en YouTube`;
+    return;
+  }
+
+  box.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${video.videoId}?autoplay=1&controls=1&rel=0&playsinline=1" allowfullscreen allow="autoplay;encrypted-media;picture-in-picture" style="width:100%;height:100%;border:none"></iframe>`;
   if (pill) pill.innerHTML = '<span class="live-dot-r"></span>EN VIVO AHORA';
   if (next) next.innerHTML = `📺 <strong>${video.title}</strong> · Transmisión en curso`;
 }
