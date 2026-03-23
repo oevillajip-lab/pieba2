@@ -191,25 +191,25 @@
     .culto-hora { font-size: 2.1rem; font-weight: 300; margin-top: .85rem; }
     .culto-desc { font-size: .78rem; color: var(--muted); margin-top: .65rem; line-height: 1.65; }
 
-    .video-library { margin-top: 2rem; text-align: left; background: rgba(255,255,255,.03); border: 1px solid var(--glass-b); border-radius: 8px; padding: 1.5rem; }
-    .video-library-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.2rem; flex-wrap: wrap; }
+    .video-library { margin-top: 2rem; text-align: left; background: rgba(255,255,255,.03); border: 1px solid var(--glass-b); border-radius: 10px; padding: 1.6rem; }
+    .video-library-head { display: flex; flex-direction: column; gap: .55rem; }
     .video-library-kicker { font-size: .66rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
-    .video-library-title { margin-top: .45rem; font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 600; color: var(--white); }
-    .video-controls { display: flex; align-items: center; gap: .9rem; flex-wrap: wrap; justify-content: flex-end; }
-    .video-filter-chips { display: flex; gap: .55rem; flex-wrap: wrap; }
-    .video-chip { background: rgba(255,255,255,.04); color: var(--muted); border: 1px solid var(--glass-b); border-radius: 999px; padding: .52rem .85rem; font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: .25s ease; }
-    .video-chip:hover, .video-chip.active { color: var(--navy); background: var(--gold); border-color: var(--gold); }
-    .video-month-wrap { display: flex; align-items: center; gap: .5rem; }
-    .video-month-wrap label { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
-    .video-month-select { min-width: 185px; background: rgba(255,255,255,.04); color: var(--white); border: 1px solid var(--glass-b); border-radius: 6px; padding: .72rem .85rem; }
-    .video-feature { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1.2rem; margin-top: 1.3rem; }
-    .video-feature-media { position: relative; min-height: 320px; border-radius: 8px; overflow: hidden; border: 1px solid var(--glass-b); background: rgba(0,0,0,.45); }
-    .video-feature-media iframe, .video-feature-media img { width: 100%; height: 100%; border: 0; object-fit: cover; display: block; }
-    .video-feature-placeholder { min-height: 320px; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--muted); padding: 2rem; }
-    .video-feature-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: linear-gradient(to top, rgba(7,5,30,.88), rgba(7,5,30,.2)); }
-    .video-feature-play { width: 82px; height: 82px; border-radius: 50%; border: 1px solid rgba(201,169,110,.65); background: rgba(201,169,110,.15); display: flex; align-items: center; justify-content: center; color: var(--gold); cursor: pointer; backdrop-filter: blur(8px); }
-    .video-feature-play svg { margin-left: 4px; }
-    .video-feature-body { background: rgba(255,255,255,.03); border: 1px solid var(--glass-b); border-radius: 8px; padding: 1.15rem; display: flex; flex-direction: column; }
+    .video-library-title { margin-top: .2rem; font-family: 'Cinzel', serif; font-size: 1.2rem; font-weight: 600; color: var(--white); }
+    .video-library-sub { font-size: .82rem; color: var(--muted); line-height: 1.75; max-width: 860px; }
+    .video-controls { display: flex; flex-direction: column; gap: .95rem; margin-top: 1.25rem; }
+    .video-filter-group { display: flex; flex-direction: column; gap: .5rem; }
+    .video-filter-label { font-size: .67rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+    .video-filter-chips, .video-month-chips { display: flex; gap: .55rem; flex-wrap: wrap; }
+    .video-chip, .video-month-chip { background: rgba(255,255,255,.04); color: var(--muted); border: 1px solid var(--glass-b); border-radius: 999px; padding: .56rem .9rem; font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: .25s ease; }
+    .video-chip:hover, .video-chip.active, .video-month-chip:hover, .video-month-chip.active { color: var(--navy); background: var(--gold); border-color: var(--gold); }
+    .video-feature { display: grid; grid-template-columns: 1.1fr .9fr; gap: 1.2rem; margin-top: 1.35rem; }
+    .video-player-stage { min-height: 340px; border-radius: 8px; overflow: hidden; border: 1px solid var(--glass-b); background: linear-gradient(160deg, rgba(255,255,255,.03), rgba(7,5,30,.6)); }
+    .video-player-stage iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .video-player-placeholder { min-height: 340px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; color: var(--muted); }
+    .video-player-icon { width: 76px; height: 76px; border-radius: 50%; border: 1px solid rgba(201,169,110,.5); display: inline-flex; align-items: center; justify-content: center; color: var(--gold); margin-bottom: 1rem; background: rgba(201,169,110,.08); }
+    .video-player-placeholder strong { color: var(--white); display: block; margin-bottom: .45rem; font-family: 'Cinzel', serif; font-weight: 600; }
+    .video-player-placeholder p { max-width: 420px; line-height: 1.7; font-size: .85rem; }
+    .video-feature-body { background: rgba(255,255,255,.03); border: 1px solid var(--glass-b); border-radius: 8px; padding: 1.2rem; display: flex; flex-direction: column; }
     .video-feature-topline { display: flex; gap: .65rem; align-items: center; flex-wrap: wrap; }
     .video-tag { display: inline-flex; align-items: center; gap: .35rem; padding: .32rem .62rem; border-radius: 999px; background: rgba(201,169,110,.14); border: 1px solid rgba(201,169,110,.25); color: var(--gold); font-size: .64rem; letter-spacing: .14em; text-transform: uppercase; }
     .video-date { font-size: .72rem; color: var(--muted); }
@@ -217,24 +217,24 @@
     .video-feature-meta { margin-top: .5rem; font-size: .78rem; color: var(--gold); letter-spacing: .06em; }
     .video-feature-desc { margin-top: .9rem; color: var(--muted); font-size: .84rem; line-height: 1.7; }
     .video-feature-actions { margin-top: auto; display: flex; gap: .7rem; flex-wrap: wrap; padding-top: 1.2rem; }
-    .video-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: .72rem 1rem; border-radius: 4px; text-decoration: none; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; border: 1px solid transparent; cursor: pointer; }
+    .video-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: .75rem 1.05rem; border-radius: 4px; text-decoration: none; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; border: 1px solid transparent; cursor: pointer; }
     .video-btn-primary { background: var(--gold); color: var(--navy); border-color: var(--gold); }
     .video-btn-secondary { background: transparent; color: var(--white); border-color: var(--glass-b); }
     .video-btn-disabled { background: rgba(255,255,255,.04); color: var(--muted); border-color: var(--glass-b); cursor: not-allowed; }
+    .video-btn-large { min-width: 220px; }
     .video-note { font-size: .74rem; color: var(--muted); }
     .video-strip-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.35rem; flex-wrap: wrap; }
     .video-strip-title { font-family: 'Cinzel', serif; font-size: .92rem; color: var(--white); }
     .video-strip-count { font-size: .72rem; color: var(--muted); }
-    .video-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .85rem; margin-top: .85rem; }
-    .video-card { background: rgba(255,255,255,.03); border: 1px solid var(--glass-b); border-radius: 6px; overflow: hidden; text-align: left; cursor: pointer; transition: .25s ease; padding: 0; appearance: none; -webkit-appearance: none; }
-    .video-card:hover, .video-card.active { transform: translateY(-3px); border-color: var(--gold-dim); }
-    .video-card-thumb { position: relative; aspect-ratio: 16/9; background: rgba(0,0,0,.45); overflow: hidden; }
-    .video-card-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .video-card-badge { position: absolute; left: .6rem; top: .6rem; background: rgba(7,5,30,.82); border: 1px solid rgba(201,169,110,.25); color: var(--gold); border-radius: 999px; padding: .25rem .5rem; font-size: .58rem; letter-spacing: .12em; text-transform: uppercase; }
-    .video-card-body { padding: .8rem; }
-    .video-card-title { font-size: .8rem; color: var(--white); line-height: 1.45; min-height: 3.1em; }
-    .video-card-meta { margin-top: .45rem; font-size: .68rem; color: var(--muted); }
+    .video-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .95rem; margin-top: .9rem; }
+    .video-list-item { background: rgba(255,255,255,.03); border: 1px solid var(--glass-b); border-radius: 8px; padding: 1rem; display: flex; flex-direction: column; gap: .75rem; transition: .25s ease; }
+    .video-list-item.active { border-color: var(--gold-dim); box-shadow: 0 0 0 1px rgba(201,169,110,.12) inset; }
+    .video-list-topline { display: flex; align-items: center; justify-content: space-between; gap: .75rem; flex-wrap: wrap; }
+    .video-list-title { font-family: 'Cinzel', serif; font-size: .96rem; color: var(--white); line-height: 1.45; }
+    .video-list-desc { font-size: .8rem; color: var(--muted); line-height: 1.7; }
+    .video-list-actions { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: .75rem; flex-wrap: wrap; }
     .video-empty { margin-top: 1rem; padding: 1.25rem; text-align: center; color: var(--muted); border: 1px dashed var(--glass-b); border-radius: 6px; }
+
 
     /* ── EN VIVO ── */
 
@@ -470,6 +470,11 @@
     @keyframes spin      { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
 
     /* ── MOBILE ── */
+
+    @media (max-width: 1100px) {
+      .video-feature { grid-template-columns: 1fr; }
+      .video-list { grid-template-columns: 1fr; }
+    }
     @media (max-width: 900px) {
       html, body { overflow: hidden; }
 
@@ -516,16 +521,14 @@
       .video-library-head { align-items: stretch; }
       .video-library-title { font-size: 1rem; }
       .video-controls { width: 100%; justify-content: flex-start; }
-      .video-filter-chips { gap: .45rem; }
-      .video-chip { padding: .5rem .7rem; font-size: .62rem; }
-      .video-month-wrap { width: 100%; }
-      .video-month-select { width: 100%; min-width: 0; }
+      .video-filter-chips, .video-month-chips { gap: .45rem; }
+      .video-chip, .video-month-chip { padding: .5rem .7rem; font-size: .62rem; }
       .video-feature { grid-template-columns: 1fr; }
-      .video-feature-media, .video-feature-placeholder { min-height: 220px; }
+      .video-player-stage, .video-player-placeholder { min-height: 220px; }
       .video-feature-title { font-size: 1.05rem; }
       .video-feature-actions { padding-top: .95rem; }
       .video-btn { width: 100%; }
-      .video-strip { grid-template-columns: 1fr; }
+      .video-list { grid-template-columns: 1fr; }
 
       .envivo-wrap { width: 100%; max-width: 100%; padding: 0 1.2rem; }
       .stream-box { margin-top: 1.2rem; max-height: none; min-height: 200px; }
@@ -721,48 +724,61 @@
         <div class="video-library-head">
           <div>
             <p class="video-library-kicker">Biblioteca del canal</p>
-            <h3 class="video-library-title">Destacado, filtros por tipo y por fecha</h3>
+            <h3 class="video-library-title">Video principal y mensajes para reproducir aquí</h3>
+            <p class="video-library-sub">El video destacado se prepara con un botón grande y los demás aparecen como tarjetas de texto con nombre, descripción y botón. Se excluyen shorts y reels, y puedes filtrar por tipo o por mes con botones.</p>
           </div>
-          <div class="video-controls">
+        </div>
+
+        <div class="video-controls">
+          <div class="video-filter-group">
+            <span class="video-filter-label">Tipo</span>
             <div class="video-filter-chips" id="videoTypeFilters">
               <button type="button" class="video-chip active" data-video-type="all">Todos</button>
               <button type="button" class="video-chip" data-video-type="Cultos">Cultos</button>
+              <button type="button" class="video-chip" data-video-type="Estudios">Estudios</button>
               <button type="button" class="video-chip" data-video-type="Charlas">Charlas</button>
               <button type="button" class="video-chip" data-video-type="Debates">Debates</button>
               <button type="button" class="video-chip" data-video-type="Avisos">Avisos</button>
-              <button type="button" class="video-chip" data-video-type="Estudios">Estudios</button>
+              <button type="button" class="video-chip" data-video-type="Jóvenes">Jóvenes</button>
               <button type="button" class="video-chip" data-video-type="Otros">Otros</button>
             </div>
-            <div class="video-month-wrap">
-              <label for="videoMonthFilter">Mes</label>
-              <select id="videoMonthFilter" class="video-month-select">
-                <option value="all">Todos los meses</option>
-              </select>
+          </div>
+
+          <div class="video-filter-group">
+            <span class="video-filter-label">Mes</span>
+            <div class="video-month-chips" id="videoMonthFilters">
+              <button type="button" class="video-month-chip active" data-video-month="all">Todos</button>
             </div>
           </div>
         </div>
 
         <div class="video-feature" id="videoFeature">
-          <div class="video-feature-media" id="videoFeatureMedia">
-            <div class="video-feature-placeholder">Cargando videos del canal...</div>
+          <div class="video-player-stage" id="videoFeatureMedia">
+            <div class="video-player-placeholder">
+              <div class="video-player-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <strong>Selecciona el mensaje principal</strong>
+              <p>Presiona el botón grande para reproducir el video destacado dentro del sitio. No se mostrarán miniaturas ni enlaces externos en esta sección.</p>
+            </div>
           </div>
           <div class="video-feature-body">
             <div class="video-feature-topline">
               <span class="video-tag" id="videoFeatureType">Canal</span>
               <span class="video-date" id="videoFeatureDate">Conectando con YouTube...</span>
             </div>
-            <h3 class="video-feature-title" id="videoFeatureTitle">Cargando video destacado...</h3>
+            <h3 class="video-feature-title" id="videoFeatureTitle">Cargando video principal...</h3>
             <p class="video-feature-meta" id="videoFeatureMeta">Preparando biblioteca del canal.</p>
-            <p class="video-feature-desc" id="videoFeatureDesc">Cuando cargue la lista, aquí aparecerá el video principal y debajo podrás elegir otros por tipo o por mes.</p>
+            <p class="video-feature-desc" id="videoFeatureDesc">Aquí aparecerá el mensaje principal del canal con su descripción resumida.</p>
             <div class="video-feature-actions" id="videoFeatureActions"></div>
           </div>
         </div>
 
         <div class="video-strip-head">
-          <p class="video-strip-title">Más videos del canal</p>
+          <p class="video-strip-title">Más mensajes del canal</p>
           <p class="video-strip-count" id="videoStripCount">Cargando…</p>
         </div>
-        <div class="video-strip" id="videoStrip"></div>
+        <div class="video-list" id="videoStrip"></div>
       </div>
     </div>
     <span class="page-num">03 / 10</span>
@@ -1361,17 +1377,20 @@ document.addEventListener('keydown', e => {
 
 <script>
 /* ── YOUTUBE ── */
-const YT_API_KEY    = 'AIzaSyAgz1KXOuS4q-uxNKL9GJdRQJ4P1jGrDG4';
+const YT_API_KEY = 'AIzaSyAgz1KXOuS4q-uxNKL9GJdRQJ4P1jGrDG4';
 const YT_CHANNEL_ID = 'UCcijrVl3zWSXSuzP3nQI32A';
-const YT_BASE       = 'https://www.googleapis.com/youtube/v3';
+const YT_BASE = 'https://www.googleapis.com/youtube/v3';
 const ytOK = () => Boolean(YT_API_KEY && YT_CHANNEL_ID);
 const qs = s => document.querySelector(s);
+const bibleRefRe = /(genesis|exodo|levitico|numeros|deuteronomio|josue|jueces|rut|samuel|reyes|cronicas|esdras|nehemias|ester|job|salmo|salmos|proverbios|eclesiastes|cantares|isaias|jeremias|lamentaciones|ezequiel|daniel|oseas|joel|amos|abdias|jonas|miqueas|nahum|habacuc|sofonias|hageo|zacarias|malaquias|mateo|marcos|lucas|juan|hechos|romanos|corintios|galatas|efesios|filipenses|colosenses|tesalonicenses|timoteo|tito|filemon|hebreos|santiago|pedro|judas|apocalipsis)/;
 const videoState = {
   all: [],
   filtered: [],
   selectedId: null,
+  playingId: null,
   type: 'all',
-  month: 'all'
+  month: 'all',
+  latestEmbeddable: null
 };
 
 async function ytFetch(path, params = {}) {
@@ -1392,57 +1411,60 @@ function fmtDateTime(iso) {
   return new Date(iso).toLocaleString('es-PY', { weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' });
 }
 function escapeHtml(str = '') {
-  return str.replace(/[&<>"']/g, (m) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;', "'":'&#39;' }[m]));
+  return String(str).replace(/[&<>"']/g, (m) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;', "'":'&#39;' }[m]));
 }
-function videoUrl(videoId) {
-  return `https://www.youtube.com/watch?v=${videoId}`;
-}
-function closeSermonPlayer() {
-  // kept for compatibility with older markup if it exists
-  const w = document.getElementById('sermonPlayerWrap');
-  const f = document.getElementById('sermonPlayer');
-  if (f) f.src = '';
-  if (w) w.style.display = 'none';
-}
-
-async function getUploadsPlaylistId() {
-  const data = await ytFetch('channels', { part: 'contentDetails', id: YT_CHANNEL_ID });
-  return data.items?.[0]?.contentDetails?.relatedPlaylists?.uploads || null;
-}
-
 function normalizeText(str = '') {
   return String(str)
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^\w\s]/g, ' ')
+    .replace(/[^\w\s#]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
 }
+function summarizeDescription(str = '', max = 170) {
+  const clean = String(str).replace(/\s+/g, ' ').trim();
+  if (!clean) return 'Contenido del canal disponible para reproducir dentro del sitio.';
+  return clean.length > max ? `${clean.slice(0, max).trim()}…` : clean;
+}
+function parseISODuration(iso = '') {
+  const match = iso.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/i);
+  if (!match) return 0;
+  const [, h, m, s] = match;
+  return (Number(h || 0) * 3600) + (Number(m || 0) * 60) + Number(s || 0);
+}
+function buildEmbedUrl(videoId, autoplay = false) {
+  return `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=${autoplay ? 1 : 0}&controls=1&rel=0&playsinline=1`;
+}
 
 function classifyVideo(video) {
-  const text = normalizeText(`${video.title} ${video.description || ''}`);
+  const title = normalizeText(video.title || '');
+  const desc = normalizeText((video.description || '').split('\n').slice(0, 4).join(' '));
 
-  if (/(aviso|anuncio|comunicado|agenda|informativo|novedades)/.test(text)) return 'Avisos';
-  if (/(debate|panel|conversatorio|mesa redonda|dialogo|di[aá]logo)/.test(text)) return 'Debates';
-  if (/(charla|conferencia|seminario|taller|entrevista|capacitacion|capacitaci[oó]n)/.test(text)) return 'Charlas';
-  if (/(estudio biblico|estudio b[ií]blico|discipulado|devocional|escuela dominical|lectura b[ií]blica)/.test(text)) return 'Estudios';
-  if (/(culto|predica|predicacion|predicación|sermon|serm[oó]n|mensaje|adoracion|adoración|domingo|miercoles|miércoles)/.test(text)) return 'Cultos';
+  if (/(^|\s)(aviso|avisos|anuncio|anuncios|informativo|informacion|comunicado|agenda)(\s|$)/.test(title) || /\baviso\b/.test(desc)) return 'Avisos';
+  if (/(^|\s)(mj|jovenes|juvenil|juventud|adolescentes)(\s|$)/.test(title) || /\bjuventud\b/.test(desc)) return 'Jóvenes';
+  if (/(debate|panel|conversatorio|mesa redonda|dialogo|preguntas y respuestas|q a)/.test(title)) return 'Debates';
+  if (/(charla|conferencia|seminario|entrevista|testimonio|taller)/.test(title)) return 'Charlas';
+  if (/(estudio biblico|escuela dominical|discipulado|devocional|ensenanza|serie biblica|clase biblica)/.test(title)) return 'Estudios';
+  if (/(culto|predic|sermon|mensaje|adoracion|santa cena|domingo|miercoles|pr |pastor)/.test(title) || bibleRefRe.test(title)) return 'Cultos';
+  if (/(estudio biblico|escuela dominical|discipulado)/.test(desc)) return 'Estudios';
+  if (video.durationSeconds >= 1200) return 'Cultos';
   return 'Otros';
 }
 
 function toVideoItem(v) {
   if (!v) return null;
+  const durationSeconds = parseISODuration(v.contentDetails?.duration || '');
   const item = {
     videoId: v.id,
     title: v.snippet?.title || '',
     description: v.snippet?.description || '',
-    thumb: v.snippet?.thumbnails?.high?.url || v.snippet?.thumbnails?.medium?.url || v.snippet?.thumbnails?.default?.url,
     publishedAt: v.snippet?.publishedAt || null,
     scheduledStartTime: v.liveStreamingDetails?.scheduledStartTime || null,
     actualStartTime: v.liveStreamingDetails?.actualStartTime || null,
     embeddable: v.status?.embeddable !== false,
-    privacyStatus: v.status?.privacyStatus || 'public'
+    privacyStatus: v.status?.privacyStatus || 'public',
+    durationSeconds
   };
   item.category = classifyVideo(item);
   item.monthKey = item.publishedAt ? item.publishedAt.slice(0, 7) : 'unknown';
@@ -1452,15 +1474,23 @@ function toVideoItem(v) {
   return item;
 }
 
-async function getVideoById(videoId) {
-  if (!videoId) return null;
-  const data = await ytFetch('videos', { part: 'snippet,status,liveStreamingDetails', id: videoId });
-  return toVideoItem(data.items?.[0]);
+function isLongFormPlayable(video) {
+  const text = normalizeText(`${video.title} ${video.description}`);
+  if (video.privacyStatus === 'private' || !video.embeddable) return false;
+  if (video.durationSeconds > 0 && video.durationSeconds < 90) return false;
+  if (/(^|\s)(#shorts|shorts|short|reel|reels|clip)(\s|$)/.test(text)) return false;
+  return true;
 }
 
-async function getRecentUploads(limit = 24) {
+async function getUploadsPlaylistId() {
+  const data = await ytFetch('channels', { part: 'contentDetails', id: YT_CHANNEL_ID });
+  return data.items?.[0]?.contentDetails?.relatedPlaylists?.uploads || null;
+}
+
+async function getRecentUploads(limit = 40) {
   const uploadsId = await getUploadsPlaylistId();
   if (!uploadsId) return [];
+
   const items = [];
   let pageToken = '';
   while (items.length < limit) {
@@ -1475,16 +1505,14 @@ async function getRecentUploads(limit = 24) {
     pageToken = data.nextPageToken;
   }
 
-  const ids = items
-    .map(item => item?.snippet?.resourceId?.videoId)
-    .filter(Boolean);
-
+  const ids = items.map(item => item?.snippet?.resourceId?.videoId).filter(Boolean);
   if (!ids.length) return [];
+
   const chunks = [];
   for (let i = 0; i < ids.length; i += 50) chunks.push(ids.slice(i, i + 50).join(','));
 
-  const detailBatches = await Promise.all(chunks.map(idChunk => ytFetch('videos', {
-    part: 'snippet,status,liveStreamingDetails',
+  const detailBatches = await Promise.all(chunks.map((idChunk) => ytFetch('videos', {
+    part: 'snippet,status,liveStreamingDetails,contentDetails',
     id: idChunk
   })));
 
@@ -1492,7 +1520,7 @@ async function getRecentUploads(limit = 24) {
     .flatMap(batch => batch.items || [])
     .map(toVideoItem)
     .filter(Boolean)
-    .filter(v => v.privacyStatus !== 'private')
+    .filter(isLongFormPlayable)
     .sort((a, b) => new Date(b.publishedAt || 0) - new Date(a.publishedAt || 0));
 }
 
@@ -1508,11 +1536,11 @@ async function getBroadcast(eventType) {
   const ids = (search.items || []).map(i => i.id?.videoId).filter(Boolean);
   if (!ids.length) return null;
 
-  const videos = await ytFetch('videos', { part: 'snippet,status,liveStreamingDetails', id: ids.join(',') });
+  const videos = await ytFetch('videos', { part: 'snippet,status,liveStreamingDetails,contentDetails', id: ids.join(',') });
   const items = (videos.items || [])
     .map(toVideoItem)
     .filter(Boolean)
-    .filter(v => v.privacyStatus !== 'private' && v.embeddable);
+    .filter(isLongFormPlayable);
 
   if (!items.length) return null;
   if (eventType === 'live') items.sort((a,b) => new Date(b.actualStartTime || b.publishedAt) - new Date(a.actualStartTime || a.publishedAt));
@@ -1520,20 +1548,17 @@ async function getBroadcast(eventType) {
   return items[0];
 }
 
-function populateMonthFilter(videos) {
-  const select = document.getElementById('videoMonthFilter');
-  if (!select) return;
+function populateMonthButtons(videos) {
+  const wrap = document.getElementById('videoMonthFilters');
+  if (!wrap) return;
 
-  const current = videoState.month;
-  const options = [...new Map(videos
+  const months = [...new Map(videos
     .filter(v => v.monthKey && v.monthKey !== 'unknown')
     .map(v => [v.monthKey, v.monthLabel]))]
     .sort((a, b) => b[0].localeCompare(a[0]));
 
-  select.innerHTML = '<option value="all">Todos los meses</option>' +
-    options.map(([key, label]) => `<option value="${escapeHtml(key)}">${escapeHtml(label)}</option>`).join('');
-
-  select.value = current;
+  wrap.innerHTML = `<button type="button" class="video-month-chip ${videoState.month === 'all' ? 'active' : ''}" data-video-month="all">Todos</button>` +
+    months.map(([key, label]) => `<button type="button" class="video-month-chip ${videoState.month === key ? 'active' : ''}" data-video-month="${escapeHtml(key)}">${escapeHtml(label)}</button>`).join('');
 }
 
 function getFilteredVideos() {
@@ -1552,40 +1577,35 @@ function renderFeature(video, autoplay = false) {
   const meta = document.getElementById('videoFeatureMeta');
   const desc = document.getElementById('videoFeatureDesc');
   const actions = document.getElementById('videoFeatureActions');
-  if (!media || !type || !date || !title || !meta || !desc || !actions || !video) return;
+  if (!media || !type || !date || !title || !meta || !desc || !actions) return;
 
+  if (!video) {
+    type.textContent = 'Canal';
+    date.textContent = 'Sin resultados';
+    title.textContent = 'No hay videos para este filtro';
+    meta.textContent = 'Prueba con otro tipo o mes.';
+    desc.textContent = 'La biblioteca no encontró videos largos y reproducibles para los filtros elegidos.';
+    media.innerHTML = `<div class="video-player-placeholder"><div class="video-player-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><strong>Sin video disponible</strong><p>No se encontraron videos que coincidan con ese filtro.</p></div>`;
+    actions.innerHTML = '';
+    return;
+  }
+
+  const isPlaying = autoplay || videoState.playingId === video.videoId;
   type.textContent = video.category;
   date.textContent = video.publishedAt ? fmtDate(video.publishedAt) : 'Sin fecha';
   title.textContent = video.title;
-  meta.textContent = video.embeddable
-    ? 'Disponible para reproducir dentro del sitio'
-    : 'Este video debe abrirse directamente en YouTube';
-  desc.textContent = video.description?.trim()
-    ? video.description.trim().slice(0, 240) + (video.description.trim().length > 240 ? '…' : '')
-    : 'Selecciona entre cultos, charlas, debates, avisos y otros contenidos del canal.';
+  meta.textContent = isPlaying
+    ? 'Reproduciendo dentro del sitio'
+    : 'Listo para reproducir dentro del sitio';
+  desc.textContent = summarizeDescription(video.description, 220);
 
-  if (autoplay && video.embeddable) {
-    media.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${video.videoId}?autoplay=1&controls=1&rel=0&playsinline=1" title="${escapeHtml(video.title)}" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe>`;
+  if (isPlaying) {
+    media.innerHTML = `<iframe src="${buildEmbedUrl(video.videoId, true)}" title="${escapeHtml(video.title)}" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe>`;
   } else {
-    media.innerHTML = `
-      ${video.thumb ? `<img src="${escapeHtml(video.thumb)}" alt="${escapeHtml(video.title)}">` : `<div class="video-feature-placeholder">Sin miniatura disponible</div>`}
-      <div class="video-feature-overlay">
-        <button type="button" class="video-feature-play" data-play-featured="${escapeHtml(video.videoId)}" aria-label="Reproducir ${escapeHtml(video.title)} aquí">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-      </div>`;
+    media.innerHTML = `<div class="video-player-placeholder"><div class="video-player-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><strong>${escapeHtml(video.title)}</strong><p>Presiona el botón grande para reproducir este mensaje aquí mismo, sin salir del sitio.</p></div>`;
   }
 
-  const ytHref = videoUrl(video.videoId);
-  if (video.embeddable) {
-    actions.innerHTML = `
-      <button type="button" class="video-btn video-btn-primary" data-play-featured="${escapeHtml(video.videoId)}">Ver aquí</button>
-      <a class="video-btn video-btn-secondary" href="${escapeHtml(ytHref)}" target="_blank" rel="noopener">Ver en YouTube</a>`;
-  } else {
-    actions.innerHTML = `
-      <a class="video-btn video-btn-primary" href="${escapeHtml(ytHref)}" target="_blank" rel="noopener">Ver en YouTube</a>
-      <span class="video-note">YouTube no permite reproducir este video dentro del sitio.</span>`;
-  }
+  actions.innerHTML = `<button type="button" class="video-btn video-btn-primary video-btn-large" data-play-featured="${escapeHtml(video.videoId)}">${isPlaying ? 'Reproducir de nuevo' : 'Reproducir aquí'}</button>`;
 }
 
 function renderVideoStrip(videos) {
@@ -1601,20 +1621,22 @@ function renderVideoStrip(videos) {
   }
 
   strip.innerHTML = videos.map(video => `
-    <button type="button" class="video-card ${video.videoId === videoState.selectedId ? 'active' : ''}" data-select-video="${escapeHtml(video.videoId)}" aria-label="Ver ${escapeHtml(video.title)}">
-      <div class="video-card-thumb">
-        ${video.thumb ? `<img src="${escapeHtml(video.thumb)}" alt="">` : ''}
-        <span class="video-card-badge">${escapeHtml(video.category)}</span>
+    <article class="video-list-item ${video.videoId === videoState.selectedId ? 'active' : ''}">
+      <div class="video-list-topline">
+        <span class="video-tag">${escapeHtml(video.category)}</span>
+        <span class="video-date">${escapeHtml(fmtDate(video.publishedAt))}</span>
       </div>
-      <div class="video-card-body">
-        <p class="video-card-title">${escapeHtml(video.title)}</p>
-        <p class="video-card-meta">${escapeHtml(fmtDate(video.publishedAt))}</p>
+      <h4 class="video-list-title">${escapeHtml(video.title)}</h4>
+      <p class="video-list-desc">${escapeHtml(summarizeDescription(video.description, 150))}</p>
+      <div class="video-list-actions">
+        <span class="video-note">${video.videoId === videoState.selectedId ? 'Seleccionado como principal' : 'Disponible para reproducir aquí'}</span>
+        <button type="button" class="video-btn video-btn-primary" data-play-video="${escapeHtml(video.videoId)}">Reproducir aquí</button>
       </div>
-    </button>
+    </article>
   `).join('');
 }
 
-function applyVideoFilters({ preserveSelection = true, autoplay = false } = {}) {
+function applyVideoFilters({ preserveSelection = true } = {}) {
   videoState.filtered = getFilteredVideos();
 
   let featured = null;
@@ -1622,11 +1644,15 @@ function applyVideoFilters({ preserveSelection = true, autoplay = false } = {}) 
     featured = videoState.filtered.find(v => v.videoId === videoState.selectedId) || null;
   }
   if (!featured) {
-    featured = videoState.filtered[0] || videoState.all[0] || null;
+    featured = videoState.filtered[0] || null;
   }
 
   videoState.selectedId = featured?.videoId || null;
-  if (featured) renderFeature(featured, autoplay);
+  if (videoState.playingId && featured?.videoId !== videoState.playingId) {
+    videoState.playingId = null;
+  }
+
+  renderFeature(featured, false);
   renderVideoStrip(videoState.filtered);
 }
 
@@ -1638,43 +1664,62 @@ function setVideoTypeFilter(type) {
   applyVideoFilters({ preserveSelection: false });
 }
 
-function initVideoLibrary(videos) {
-  videoState.all = videos;
-  populateMonthFilter(videos);
+function setVideoMonthFilter(month) {
+  videoState.month = month;
+  document.querySelectorAll('.video-month-chip').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.videoMonth === month);
+  });
   applyVideoFilters({ preserveSelection: false });
 }
 
-function renderEmbedBlocked(box, text, buttonLabel, videoId) {
-  box.innerHTML = `
-    <div class="stream-ph">
-      <div class="stream-icon">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-      </div>
-      <p style="font-size:.84rem;line-height:1.6">${escapeHtml(text)}</p>
-      <a href="${escapeHtml(videoUrl(videoId))}" target="_blank" rel="noopener" style="background:var(--gold);color:#0f0b32;border:none;padding:.6rem 1.3rem;border-radius:2px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;text-decoration:none">${escapeHtml(buttonLabel)}</a>
-    </div>`;
+function initVideoLibrary(videos) {
+  videoState.all = videos;
+  videoState.latestEmbeddable = videos[0] || null;
+  populateMonthButtons(videos);
+  applyVideoFilters({ preserveSelection: false });
+}
+
+function playFeatured(videoId, { scrollIntoView = true } = {}) {
+  const video = videoState.all.find(v => v.videoId === videoId);
+  if (!video) return;
+  videoState.selectedId = video.videoId;
+  videoState.playingId = video.videoId;
+  renderFeature(video, true);
+  renderVideoStrip(videoState.filtered);
+
+  if (scrollIntoView) {
+    document.getElementById('videoFeature')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function mountLivePlayer(video) {
+  const box = qs('.stream-box');
+  const next = qs('.next-txt');
+  const pill = qs('.live-pill');
+  if (!box || !video) return;
+
+  box.innerHTML = `<iframe src="${buildEmbedUrl(video.videoId, true)}" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture" style="width:100%;height:100%;border:none" title="${escapeHtml(video.title)}"></iframe>`;
+  if (pill) pill.innerHTML = '<span class="live-dot-r"></span>CANAL';
+  if (next) next.innerHTML = `Reproduciendo ahora: <strong>${escapeHtml(video.title)}</strong>`;
 }
 
 function renderLive(video) {
   const box = qs('.stream-box'), pill = qs('.live-pill'), next = qs('.next-txt');
   if (!box || !video) return;
-
-  if (!video.embeddable) {
-    renderEmbedBlocked(box, 'La transmisión está activa, pero YouTube no permite reproducirla dentro del sitio.', 'Ver en YouTube', video.videoId);
-    if (pill) pill.innerHTML = '<span class="live-dot-r"></span>EN VIVO AHORA';
-    if (next) next.innerHTML = `📺 <strong>${escapeHtml(video.title)}</strong> · Abrir en YouTube`;
-    return;
-  }
-
-  box.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${video.videoId}?autoplay=1&controls=1&rel=0&playsinline=1" allowfullscreen allow="autoplay;encrypted-media;picture-in-picture" style="width:100%;height:100%;border:none"></iframe>`;
+  box.innerHTML = `<iframe src="${buildEmbedUrl(video.videoId, true)}" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture" style="width:100%;height:100%;border:none" title="${escapeHtml(video.title)}"></iframe>`;
   if (pill) pill.innerHTML = '<span class="live-dot-r"></span>EN VIVO AHORA';
   if (next) next.innerHTML = `📺 <strong>${escapeHtml(video.title)}</strong> · Transmisión en curso`;
 }
 
-function renderUpcoming(video) {
+function renderUpcoming(video, fallbackVideo) {
   const box = qs('.stream-box'), next = qs('.next-txt'), pill = qs('.live-pill');
   if (!box || !video) return;
-  box.innerHTML = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:1.25rem"><div style="max-width:520px;width:100%;text-align:center">${video.thumb ? `<img src="${escapeHtml(video.thumb)}" alt="" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:4px;border:1px solid rgba(255,255,255,.08);margin-bottom:1rem">` : ''}<p style="font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.65rem">Próxima transmisión programada</p><p style="font-size:.95rem;line-height:1.5;color:var(--white);margin-bottom:.85rem">${escapeHtml(video.title)}</p><p style="font-size:.82rem;color:var(--muted);margin-bottom:1rem">${video.scheduledStartTime ? escapeHtml(fmtDateTime(video.scheduledStartTime)) : 'Horario pendiente'}</p><a href="${escapeHtml(videoUrl(video.videoId))}" target="_blank" rel="noopener" style="display:inline-flex;background:var(--gold);color:#0f0b32;border:none;padding:.6rem 1.3rem;border-radius:2px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;text-decoration:none">Ver en YouTube</a></div></div>`;
+
+  const fallbackButton = fallbackVideo
+    ? `<button type="button" data-play-live-fallback="${escapeHtml(fallbackVideo.videoId)}" style="display:inline-flex;background:var(--gold);color:#0f0b32;border:none;padding:.7rem 1.35rem;border-radius:2px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer">Reproducir mensaje reciente</button>`
+    : `<span style="font-size:.78rem;color:var(--muted)">Sin video reciente disponible</span>`;
+
+  box.innerHTML = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:1.4rem"><div style="max-width:560px;width:100%;text-align:center"><p style="font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.65rem">Próxima transmisión programada</p><p style="font-size:.98rem;line-height:1.55;color:var(--white);margin-bottom:.85rem">${escapeHtml(video.title)}</p><p style="font-size:.82rem;color:var(--muted);margin-bottom:1.15rem">${video.scheduledStartTime ? escapeHtml(fmtDateTime(video.scheduledStartTime)) : 'Horario pendiente'}</p>${fallbackButton}</div></div>`;
   if (pill) pill.innerHTML = '<span class="live-dot-r"></span>PRÓXIMO EN VIVO';
   if (next) next.innerHTML = `Próxima transmisión: <strong>${video.scheduledStartTime ? escapeHtml(fmtDateTime(video.scheduledStartTime)) : 'Programada'}</strong>`;
 }
@@ -1682,7 +1727,7 @@ function renderUpcoming(video) {
 function renderLastServiceFallback(video) {
   const box = qs('.stream-box'), next = qs('.next-txt'), pill = qs('.live-pill');
   if (!box || !video) return;
-  box.innerHTML = `<div class="stream-ph"><div class="stream-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><p style="font-size:.84rem;">No hay transmisión en vivo activa<br>ni programada en este momento</p><a href="${escapeHtml(videoUrl(video.videoId))}" target="_blank" rel="noopener" style="background:var(--gold);color:#0f0b32;border:none;padding:.6rem 1.3rem;border-radius:2px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;text-decoration:none">▶ Ver último video</a></div>`;
+  box.innerHTML = `<div class="stream-ph"><div class="stream-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><p style="font-size:.84rem;line-height:1.7">No hay transmisión en vivo activa en este momento.<br>Puedes reproducir el mensaje más reciente aquí mismo.</p><button type="button" data-play-live-fallback="${escapeHtml(video.videoId)}" style="background:var(--gold);color:#0f0b32;border:none;padding:.7rem 1.35rem;border-radius:2px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer">Reproducir mensaje reciente</button></div>`;
   if (pill) pill.innerHTML = '<span class="live-dot-r"></span>CANAL';
   if (next) next.innerHTML = `Destacado reciente: <strong>${escapeHtml(video.title)}</strong>`;
 }
@@ -1694,37 +1739,36 @@ document.addEventListener('click', (event) => {
     return;
   }
 
-  const selectBtn = event.target.closest('[data-select-video]');
-  if (selectBtn) {
-    const video = videoState.all.find(v => v.videoId === selectBtn.dataset.selectVideo);
-    if (video) {
-      videoState.selectedId = video.videoId;
-      renderFeature(video, false);
-      renderVideoStrip(videoState.filtered);
-    }
+  const monthBtn = event.target.closest('[data-video-month]');
+  if (monthBtn) {
+    setVideoMonthFilter(monthBtn.dataset.videoMonth || 'all');
     return;
   }
 
-  const playBtn = event.target.closest('[data-play-featured]');
-  if (playBtn) {
-    const video = videoState.all.find(v => v.videoId === playBtn.dataset.playFeatured);
-    if (video) {
-      videoState.selectedId = video.videoId;
-      renderFeature(video, true);
-      renderVideoStrip(videoState.filtered);
-    }
+  const listPlayBtn = event.target.closest('[data-play-video]');
+  if (listPlayBtn) {
+    playFeatured(listPlayBtn.dataset.playVideo);
+    return;
   }
-});
 
-document.getElementById('videoMonthFilter')?.addEventListener('change', (event) => {
-  videoState.month = event.target.value || 'all';
-  applyVideoFilters({ preserveSelection: false });
+  const featuredPlayBtn = event.target.closest('[data-play-featured]');
+  if (featuredPlayBtn) {
+    playFeatured(featuredPlayBtn.dataset.playFeatured, { scrollIntoView: false });
+    return;
+  }
+
+  const liveFallbackBtn = event.target.closest('[data-play-live-fallback]');
+  if (liveFallbackBtn) {
+    const videoId = liveFallbackBtn.dataset.playLiveFallback;
+    const video = videoState.all.find(v => v.videoId === videoId) || videoState.latestEmbeddable;
+    if (video) mountLivePlayer(video);
+  }
 });
 
 async function initYouTubeSections() {
   if (!ytOK()) return;
   try {
-    const recentVideos = await getRecentUploads(24);
+    const recentVideos = await getRecentUploads(36);
     const latest = recentVideos[0] || null;
     if (recentVideos.length) initVideoLibrary(recentVideos);
 
@@ -1732,10 +1776,19 @@ async function initYouTubeSections() {
     if (live) { renderLive(live); return; }
 
     const upcoming = await getBroadcast('upcoming');
-    if (upcoming) { renderUpcoming(upcoming); return; }
+    if (upcoming) { renderUpcoming(upcoming, latest); return; }
 
-    if (latest) renderLastServiceFallback(latest);
-  } catch(e) {
+    if (latest) {
+      renderLastServiceFallback(latest);
+    } else {
+      const box = qs('.stream-box');
+      const next = qs('.next-txt');
+      if (box) {
+        box.innerHTML = `<div class="stream-ph"><div class="stream-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><p style="font-size:.84rem;line-height:1.7">No se encontraron transmisiones ni videos largos embebibles del canal.</p></div>`;
+      }
+      if (next) next.innerHTML = 'No se pudo encontrar un video reciente del canal';
+    }
+  } catch (e) {
     console.warn('YouTube:', e);
     const featureTitle = document.getElementById('videoFeatureTitle');
     const featureMeta = document.getElementById('videoFeatureMeta');
@@ -1748,7 +1801,7 @@ async function initYouTubeSections() {
     if (featureTitle) featureTitle.textContent = 'No se pudieron cargar los videos';
     if (featureMeta) featureMeta.textContent = 'Verificá la API key y el channel ID';
     if (featureDesc) featureDesc.textContent = 'La biblioteca del canal no pudo conectarse con YouTube.';
-    if (media) media.innerHTML = '<div class="video-feature-placeholder">No se pudo cargar el reproductor del canal.</div>';
+    if (media) media.innerHTML = '<div class="video-player-placeholder"><div class="video-player-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><strong>No se pudo cargar el reproductor</strong><p>La conexión con YouTube falló.</p></div>';
     if (strip) strip.innerHTML = '<div class="video-empty">No se pudo consultar la lista de videos.</div>';
     if (count) count.textContent = 'Sin datos';
     if (next) next.innerHTML = 'No se pudo consultar el canal';
